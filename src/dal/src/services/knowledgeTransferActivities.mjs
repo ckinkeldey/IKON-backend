@@ -1,5 +1,5 @@
-const https = require('https');
-const axios = require('axios');
+import https from 'https';
+import axios from 'axios';
 
 function arrayCleaner(array) {
   const cleanArray = [];
@@ -33,7 +33,7 @@ const getKnowledgeTransferActivities = async () => {
   return result.data || [];
 };
 
-exports.initKnowledgeTransferActivities = async (pool, { insertTargetGroup, insertKnowledgeTransferActivity, insertKnowledgeTransferActivityTargetGroup }) => {
+export const initKnowledgeTransferActivities = async (pool, { insertTargetGroup, insertKnowledgeTransferActivity, insertKnowledgeTransferActivityTargetGroup }) => {
   try {
     let i = 0;
     const ktas = await getKnowledgeTransferActivities(); // eslint-disable-line no-await-in-loop

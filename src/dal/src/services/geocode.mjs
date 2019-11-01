@@ -1,4 +1,4 @@
-const axios = require('axios');
+import axios from 'axios';
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -23,7 +23,7 @@ const geocodeLocation = async (loc) => {
   return result.data || { lat: null, lon: null };
 };
 
-exports.initGeolocations = async (pool, { insertGeolocation, getAllInstitutions }) => {
+export const initGeolocations = async (pool, { insertGeolocation, getAllInstitutions }) => {
   // check if all institutions are geolocated
   try {
     const rows = (await pool.query(getAllInstitutions)).rows;

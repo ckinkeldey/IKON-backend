@@ -1,5 +1,5 @@
-const https = require('https');
-const axios = require('axios');
+import https from 'https';
+import axios from 'axios';
 
 function arrayCleaner(array) {
   const cleanArray = [];
@@ -33,7 +33,7 @@ const getProjects = async () => {
   return result.data || [];
 };
 
-exports.initProjects = async (pool, { insertMfNProject, insertProject , insertProjectInstitutions }) => {
+export const initProjects = async (pool, { insertMfNProject, insertProject , insertProjectInstitutions }) => {
   try {
     const projects = await getProjects(); // eslint-disable-line no-await-in-loop
     //console.log(projects);
